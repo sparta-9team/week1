@@ -2,16 +2,16 @@
 <html lang="en" class="h-100" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Depth 0, Frame 0</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" th:href="@{/css/details.css}" />
+    <link rel="stylesheet" th:href="@{/css/details.css}"/>
     <style>
-        .depth-5-frame-0>span {
+        .depth-5-frame-0 > span {
             margin-left: 43px;
             text-align: center;
         }
@@ -39,6 +39,7 @@
             display: flex;
             align-self: flex-start;
             box-sizing: border-box;
+            margin-left: 8px;
         }
 
         .depth-0-frame-0 {
@@ -65,13 +66,14 @@
             box-sizing: border-box;
 
         }
+
         .depth-7-frame-1 {
             margin-bottom: 20px;
-            margin-left: 200px;
+            margin-right: 1065px;
+
             /* 119px * 1.5 */
             display: flex;
-            flex-direction: column;
-            box-sizing: border-box;
+            text-align: center;
         }
 
         .depth-0-frame-0 .depth-4-frame-0 {
@@ -82,6 +84,7 @@
             width: auto;
             box-sizing: border-box;
             margin-left: 800px;
+            height: 380px;
         }
 
         .depth-0-frame-0 .about {
@@ -386,26 +389,9 @@
             box-sizing: border-box;
         }
 
-        .depth-0-frame-0 .depth-4-frame-9 {
-            background: #FFFFFF;
-            display: flex;
-            flex-direction: row;
-            padding: 20.25px 0 20.25px 36.3px;
-            /* 13.5px * 1.5, 24.2px * 1.5 */
-            width: 1440px;
-            /* 960px * 1.5 */
-            box-sizing: border-box;
-        }
-
-        .depth-7-frame-1 .img img {
-            width: 1000px;
-            height: 600px;
-        }
-
         .depth-7-frame-1 .name name {
             text-align: center;
-            width: 1000px;
-            height: 600px;
+            display: flex;
         }
 
         .depth-0-frame-0 {
@@ -417,16 +403,6 @@
             /* 36px * 1.5, 10px * 1.5 */
             width: 1920px;
             /* 1280px * 1.5 */
-            box-sizing: border-box;
-        }
-
-        .depth-0-frame-0 {
-            background: #FFFFFF;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 54px 0 15px 0;
-            width: 1920px;
             box-sizing: border-box;
         }
 
@@ -467,6 +443,26 @@
             text-align: center; /* 제목 중앙 정렬 */
         }
 
+        .img img {
+            width: 192px;
+            height: 256px;
+            border-radius: 18px;
+            background: url("/images/gunwoo.jpeg") 50% / cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+
+        .depth-0-frame-0 .depth-7-frame-1 .introduce {
+            overflow-wrap: break-word;
+            font-family: 'Plus Jakarta Sans';
+            font-weight: 200;
+            font-size: 18px;
+            line-height: 2.25;
+            color: #617A8A;
+        }
+
+
     </style>
 </head>
 
@@ -474,12 +470,11 @@
 <div class="depth-0-frame-0">
     <div class="depth-4-frame-0">
         <div class="depth-7-frame-1">
-            <div class="name">
-                지 창 현
-            </div>
             <div class="img">
-                <img th:src="@{/images/지창현1.jpg}">
+                <img src="/images/gunwoo.jpeg"/>
             </div>
+            <div class="name">유 건 우</div>
+            <span class="introduce"> Backend Developer</span>
         </div>
     </div>
     <div class="depth-4-frame-1">
@@ -490,9 +485,8 @@
     <div class="depth-4-frame-2">
             <span
                     class="iam-abackend-developer-with-more-than-ten-years-of-experience-ihave-worked-in-companies-like-google-and-facebook-iam-currently-working-on-ablockchain-project-iam-passionate-about-technology-and-iam-always-learning-new-things">
-                저는 비전공 코린이(비트코인 아님)입니다.
-                <br>코딩에 대해 전반적으로 이해하고 프로그래밍을 배우고 싶어서 Spring트랙에 지원했습니다.
-                <br>열심히 배우고 성장하고 싶습니다. 많이 가르쳐주세요!
+                항상 열린 사고를 하는 추구하는 개발자가 되고자 합니다. 팀프젝트를 위하여 내일배움캠프에 합류하게되었습니다. 피드백 환영입니다 😃
+
             </span>
     </div>
     <div class="depth-4-frame-5">
@@ -503,9 +497,7 @@
     <div class="depth-4-frame-6">
             <span
                     class="my-development-philosophy-is-to-write-clean-and-efficient-code-ibelieve-that-code-should-be-easy-to-read-and-understand-ialso-believe-in-the-importance-of-unit-testing-and-continuous-integration">
-                취업!
-                <br>나의 실수를 지적 받거나 오류가 났을 때 '왜 내가 틀렸고,
-                <br>어째서 a에서 b로 고쳐야 하는지' 이해할 수 있는 개발자가 되고 싶다.
+                보안과 소프트웨어 개발에 대한 깊은 이해와 열정을 바탕으로, 사용자 중심의 소프트웨어 개발을 통해 새로운 가치를 창출하며, 오픈소스 커뮤니티에 기여하고자 합니다.
             </span>
     </div>
     <div class="depth-4-frame-10">
@@ -516,8 +508,7 @@
     <div class="depth-4-frame-11">
             <span
                     class="my-development-philosophy-is-to-write-clean-and-efficient-code-ibelieve-that-code-should-be-easy-to-read-and-understand-ialso-believe-in-the-importance-of-unit-testing-and-continuous-integration-1">
-                목표가 있으면 가늘고 길게- 꾸준히 합니다.
-                <br>집중력이 좋습니다.
+                각기 다른 접근 방식을 존중하고 그 안에서 유익한 부분을 배워나가는 태도입니다. 💪🏼
             </span>
     </div>
     <div class="depth-4-frame-7">
@@ -528,8 +519,8 @@
     <div class="depth-4-frame-8">
         <div class="container">
             <div class="git-hub">
-        <img th:src="@{/images/git_hub.png}" alt="GitHub Logo" style="width: 100%; height: 100%;">
-        </div>
+                <img th:src="@{/images/git_hub.png}" alt="GitHub Logo" style="width: 100%; height: 100%;">
+            </div>
             <div class="depth-5-frame-1">
                 <div class="depth-6-frame-0">
                         <span class="git-hub-1">
@@ -538,7 +529,7 @@
                 </div>
                 <div class="depth-6-frame-1">
                         <span class="andy-liugmail-com">
-                            tesbro1194 / tes1194.tistory.com
+                            dbrjsdn2051 /  velog.io/@dbrjsdn2051
                         </span>
                 </div>
             </div>

@@ -4,6 +4,7 @@ spring:
     url: jdbc:mysql://localhost:3306/week1?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     username: root
     password: root
+#    password: 12345678
 
   jpa:
     hibernate:
