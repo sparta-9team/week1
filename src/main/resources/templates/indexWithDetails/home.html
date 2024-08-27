@@ -5,6 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script>
+        function details(id) {
+            const url = `/details/${id}`
+            fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            })
+                .then(err => {
+                    console.log('User details fetch error: ', err)
+                })
+        }
+    </script>
+
     <style>
         /* Basic reset and setup */
         body {
@@ -149,7 +164,7 @@
     </div>
 </div>
 
-<div class="profile-container">
+<div class="profile-container" id="1" onclick="details(this.id)">
     <div class="profile-card">
         <img src="/images/face.png" alt="Profile Image 1" class="profile-image"/>
         <div class="profile-info">
@@ -157,28 +172,28 @@
             <p class="bio">Web developer with a love for learning new technologies.</p>
         </div>
     </div>
-    <div class="profile-card">
+    <div class="profile-card" id="2" onclick="details(this.id)">
         <img src="/images/face.png" alt="Profile Image 2" class="profile-image"/>
         <div class="profile-info">
             <h2 class="name">Jane Smith</h2>
             <p class="bio">Graphic designer and artist passionate about digital art.</p>
         </div>
     </div>
-    <div class="profile-card">
+    <div class="profile-card" id="3" onclick="details(this.id)">
         <img src="/images/face.png" alt="Profile Image 3" class="profile-image"/>
         <div class="profile-info">
             <h2 class="name">Alice Johnson</h2>
             <p class="bio">Front-end developer who enjoys creating interactive web experiences.</p>
         </div>
     </div>
-    <div class="profile-card">
+    <div class="profile-card" id="4" onclick="details(this.id)">
         <img src="/images/face.png" alt="Profile Image 4" class="profile-image"/>
         <div class="profile-info">
             <h2 class="name">Bob Brown</h2>
             <p class="bio">Full-stack developer with expertise in server-side programming.</p>
         </div>
     </div>
-    <div class="profile-card">
+    <div class="profile-card" id="5" onclick="details(this.id)">
         <img src="/images/face.png" alt="Profile Image 5" class="profile-image"/>
         <div class="profile-info">
             <h2 class="name">유건우</h2>
