@@ -16,5 +16,5 @@ public class IndexController {
     public String details(@PathVariable String userId){
         return "indexWithDetails/details/" + userId;
     }
-    
+
 }
