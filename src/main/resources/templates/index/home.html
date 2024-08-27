@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Basic reset and setup */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            margin-left: 2500px;
+            text-align: center;
+            padding: 40px 0;
+            /* 충분한 여백을 추가 */
+            max-width: 1200px;
+            width: 100%;
+            margin-bottom: 50px;
+            /* 포토카드와의 간격 추가 */
+        }
+
+
+        .team-section {
+            font-size: 150px;
+            /* 크기 증가 */
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 30px;
+            /* 간격 증가 */
+        }
+
+        .meet-the-team {
+            font-size: 200px;
+            /* 크기 증가 */
+            font-weight: semi-bold;
+            color: #555;
+            margin-bottom: 15px;
+            /* 간격 증가 */
+        }
+
+        .meet-our-team-of-professionals-to-serve-you {
+            font-size: 100px;
+            /* 크기 증가 */
+            color: #777;
+            margin-bottom: 25px;
+            /* 간격 증가 */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .team-section {
+                font-size: 50px;
+                /* 크기 조정 */
+            }
+
+            .meet-the-team {
+                font-size: 30px;
+                /* 크기 조정 */
+            }
+
+            .meet-our-team-of-professionals-to-serve-you {
+                font-size: 22px;
+                /* 크기 조정 */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .team-section {
+                font-size: 32px;
+                /* 크기 조정 */
+            }
+
+            .meet-the-team {
+                font-size: 24px;
+                /* 크기 조정 */
+            }
+
+            .meet-our-team-of-professionals-to-serve-you {
+                font-size: 20px;
+                /* 크기 조정 */
+            }
+        }
+
+        /* 프로필 css */
+
+        .profile-container {
+            margin-left: 2500px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-radius: 10px;
+            gap: 50px;
+            max-width: 1200px;
+            /* 최대 너비를 늘려서 카드가 커지도록 */
+            width: 3000%;
+            margin-bottom: 100px;
+            /* 여백 추가 */
+            justify-content: center;
+            /* 중앙 정렬 */
+        }
+
+        /* Profile Card */
+        .profile-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            width: 1000px;
+            height: 1000px;
+            /* 카드 너비를 100%로 설정 */
+            max-width: 5000px;
+            /* 카드의 최대 너비 설정 */
+        }
+
+        .profile-image {
+            width: 100%;
+            height: auto;
+            border-bottom: 2px solid #030303;
+        }
+
+        .profile-info {
+            padding: 30px;
+        }
+
+        .name {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .bio {
+            margin: 10px 0 0;
+            font-size: 16px;
+            color: #666;
+        }
+
+
+        /* 이미지 태그 */
+
+
+        /* 기본 이미지 스타일링 */
+        .my-img {
+            width: 60%;
+            /* 이미지가 부모 요소의 너비에 맞게 조절됩니다. */
+            height: auto;
+            /* 이미지의 비율을 유지하면서 높이를 자동으로 조정합니다. */
+            border: 5px solid #333;
+            /* 이미지에 테두리 추가 */
+            border-radius: 15px;
+            /* 모서리를 둥글게 만듭니다. */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            /* 그림자 효과 추가 */
+            object-fit: cover;
+            /* 이미지가 부모 요소의 크기에 맞게 잘리도록 설정합니다. */
+            transition: transform 0.3s ease, filter 0.3s ease;
+            /* 마우스를 올렸을 때의 부드러운 효과 */
+        }
+
+       
+        /* 중앙 정렬 */
+        .img-container {
+            display: flex;
+            justify-content: center;
+            /* 수평 중앙 정렬 */
+            align-items: center;
+            /* 수직 중앙 정렬 */
+            min-height: 100vh;
+            /* 뷰포트의 최소 높이로 설정 */
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="team-section">
+            Team Section
+        </div>
+        <div class="meet-the-team">
+            Meet the Team
+        </div>
+        <!-- <div class="meet-our-team-of-professionals-to-serve-you">
+            Meet our team of professionals to serve you
+        </div> -->
+    </div>
+
+    <div class="profile-container">
+        <div class="profile-card">
+            <img src="profile-image1.jpg" alt="Profile Image 1" class="profile-image" />
+            <div class="profile-info">
+                <h2 class="name">John Doe</h2>
+                <p class="bio">Web developer with a love for learning new technologies.</p>
+            </div>
+        </div>
+        <div class="profile-card">
+            <img src="profile-image2.jpg" alt="Profile Image 2" class="profile-image" />
+            <div class="profile-info">
+                <h2 class="name">Jane Smith</h2>
+                <p class="bio">Graphic designer and artist passionate about digital art.</p>
+            </div>
+        </div>
+        <div class="profile-card">
+            <img src="profile-image3.jpg" alt="Profile Image 3" class="profile-image" />
+            <div class="profile-info">
+                <h2 class="name">Alice Johnson</h2>
+                <p class="bio">Front-end developer who enjoys creating interactive web experiences.</p>
+            </div>
+        </div>
+        <div class="profile-card">
+            <img src="profile-image4.jpg" alt="Profile Image 4" class="profile-image" />
+            <div class="profile-info">
+                <h2 class="name">Bob Brown</h2>
+                <p class="bio">Full-stack developer with expertise in server-side programming.</p>
+            </div>
+        </div>
+        <div class="profile-card">
+            <img src="profile-image5.jpg" alt="Profile Image 5" class="profile-image" />
+            <div class="profile-info">
+                <h2 class="name">유건우</h2>
+                <p class="bio">ㅎㅇ</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="img-container">
+        <img src="image.png" class="my-img" alt="My Image">
+    </div>
+
+</body>
+
+</html>
