@@ -4,233 +4,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>9조대 홈페이지</title>
+    <!-- 부트스트랩 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
-        /* Basic reset and setup */
         body {
-            margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
         }
 
-        .container {
-            margin-left: 2500px;
+        .header {
+            background-color: grey;
+            background-image: url('https://img.freepik.com/free-photo/panoramic-view-of-the-sea_1048-1494.jpg?size=626&ext=jpg&ga=GA1.1.506608098.1724720742&semt=ais_hybrid');
+            background-size: cover;
+            background-position: center;
+            color: black;
             text-align: center;
-            padding: 40px 0;
-            /* 충분한 여백을 추가 */
-            max-width: 1200px;
-            width: 100%;
-            margin-bottom: 50px;
-            /* 포토카드와의 간격 추가 */
         }
 
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
 
-        .team-section {
-            font-size: 150px;
-            /* 크기 증가 */
-            font-weight: bold;
-            color: #333;
+        .header p {
+            font-size: 1.25rem;
             margin-bottom: 30px;
-            /* 간격 증가 */
         }
 
-        .meet-the-team {
-            font-size: 200px;
-            /* 크기 증가 */
-            font-weight: semi-bold;
-            color: #555;
-            margin-bottom: 15px;
-            /* 간격 증가 */
+        .header .btn {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border-radius: 25px;
         }
 
-        .meet-our-team-of-professionals-to-serve-you {
-            font-size: 100px;
-            /* 크기 증가 */
-            color: #777;
-            margin-bottom: 25px;
-            /* 간격 증가 */
+        .main {
+            padding: 50px 0;
+            background-color: #f8f9fa;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .team-section {
-                font-size: 50px;
-                /* 크기 조정 */
-            }
-
-            .meet-the-team {
-                font-size: 30px;
-                /* 크기 조정 */
-            }
-
-            .meet-our-team-of-professionals-to-serve-you {
-                font-size: 22px;
-                /* 크기 조정 */
-            }
+        .main h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
         }
 
-        @media (max-width: 480px) {
-            .team-section {
-                font-size: 32px;
-                /* 크기 조정 */
-            }
-
-            .meet-the-team {
-                font-size: 24px;
-                /* 크기 조정 */
-            }
-
-            .meet-our-team-of-professionals-to-serve-you {
-                font-size: 20px;
-                /* 크기 조정 */
-            }
+        .main p {
+            font-size: 1.2rem;
+            color: #6c757d;
         }
 
-        /* 프로필 css */
-
-        .profile-container {
-            margin-left: 2500px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            border-radius: 10px;
-            gap: 50px;
-            max-width: 1200px;
-            /* 최대 너비를 늘려서 카드가 커지도록 */
-            width: 3000%;
-            margin-bottom: 100px;
-            /* 여백 추가 */
-            justify-content: center;
-            /* 중앙 정렬 */
-        }
-
-        /* Profile Card */
-        .profile-card {
-            background: #fff;
+        .ourgoal,
+        .ourpromise {
+            padding: 40px;
+            margin-bottom: 30px;
+            background-color: #ffffff;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            text-align: center;
-            width: 1000px;
-            height: 1000px;
-            /* 카드 너비를 100%로 설정 */
-            max-width: 5000px;
-            /* 카드의 최대 너비 설정 */
         }
 
-        .profile-image {
+        .team {
+            padding: 50px 0;
+            background-color: #f1f1f1;
+        }
+
+        .team h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+        .team img {
             width: 100%;
             height: auto;
-            border-bottom: 2px solid #030303;
+            transition: transform 0.3s ease;
         }
 
-        .profile-info {
-            padding: 30px;
+        .team img:hover {
+            transform: scale(1.1);
         }
 
-        .name {
-            margin: 0;
-            font-size: 24px;
+        .team p {
+            margin-top: 10px;
+            font-size: 1.1rem;
             color: #333;
         }
-
-        .bio {
-            margin: 10px 0 0;
-            font-size: 16px;
-            color: #666;
-        }
-
-
-        /* 이미지 태그 */
-
-
-        /* 기본 이미지 스타일링 */
-        .my-img {
-            width: 60%;
-            /* 이미지가 부모 요소의 너비에 맞게 조절됩니다. */
-            height: auto;
-            /* 이미지의 비율을 유지하면서 높이를 자동으로 조정합니다. */
-            border: 5px solid #333;
-            /* 이미지에 테두리 추가 */
-            border-radius: 15px;
-            /* 모서리를 둥글게 만듭니다. */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            /* 그림자 효과 추가 */
-            object-fit: cover;
-            /* 이미지가 부모 요소의 크기에 맞게 잘리도록 설정합니다. */
-            transition: transform 0.3s ease, filter 0.3s ease;
-            /* 마우스를 올렸을 때의 부드러운 효과 */
-        }
-
-       
-        /* 중앙 정렬 */
-        .img-container {
-            display: flex;
-            justify-content: center;
-            /* 수평 중앙 정렬 */
-            align-items: center;
-            /* 수직 중앙 정렬 */
-            min-height: 100vh;
-            /* 뷰포트의 최소 높이로 설정 */
-        }
     </style>
+
 
 </head>
 
 <body>
-    <div class="container">
-        <div class="team-section">
-            Team Section
+    <div class="header">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">9조대가 구조하겠습니다</h1>
+            <p class="col-md-8 mx-auto fs-4">시리즈의 유틸리티를 사용하여 이전 버전의 Bootstrap에서 제공되던 것과 같은 점보트론을 만들 수 있습니다. 아래의 예시를 확인하여
+                이를 재믹스하고 원하는 대로 스타일링하십시오.</p>
+            <button class="btn btn-primary btn-lg" type="button">방명록으로 이동</button>
         </div>
-        <div class="meet-the-team">
-            Meet the Team
-        </div>
-        <!-- <div class="meet-our-team-of-professionals-to-serve-you">
-            Meet our team of professionals to serve you
-        </div> -->
     </div>
 
-    <div class="profile-container">
-        <div class="profile-card">
-            <img src="profile-image1.jpg" alt="Profile Image 1" class="profile-image" />
-            <div class="profile-info">
-                <h2 class="name">John Doe</h2>
-                <p class="bio">Web developer with a love for learning new technologies.</p>
+    <div class="main">
+        <div class="container">
+            <div class="ourgoal">
+                <h2>우리 팀의 목표</h2>
+                <p>1. 부끄러워도 물어보기</p>
+                <p>2. 이번 프로젝트 포트폴리오로 사용하기</p>
+                <p>3. TIL 남은날까지 맨날 쓰기 📝</p>
+                <p>4. 1일 1TIL, 1알고리즘</p>
             </div>
-        </div>
-        <div class="profile-card">
-            <img src="profile-image2.jpg" alt="Profile Image 2" class="profile-image" />
-            <div class="profile-info">
-                <h2 class="name">Jane Smith</h2>
-                <p class="bio">Graphic designer and artist passionate about digital art.</p>
-            </div>
-        </div>
-        <div class="profile-card">
-            <img src="profile-image3.jpg" alt="Profile Image 3" class="profile-image" />
-            <div class="profile-info">
-                <h2 class="name">Alice Johnson</h2>
-                <p class="bio">Front-end developer who enjoys creating interactive web experiences.</p>
-            </div>
-        </div>
-        <div class="profile-card">
-            <img src="profile-image4.jpg" alt="Profile Image 4" class="profile-image" />
-            <div class="profile-info">
-                <h2 class="name">Bob Brown</h2>
-                <p class="bio">Full-stack developer with expertise in server-side programming.</p>
-            </div>
-        </div>
-        <div class="profile-card">
-            <img src="profile-image5.jpg" alt="Profile Image 5" class="profile-image" />
-            <div class="profile-info">
-                <h2 class="name">유건우</h2>
-                <p class="bio">ㅎㅇ</p>
+            <div class="ourpromise">
+                <h2>우리 팀의 약속</h2>
+                <p>1. 시간 약속을 철저히 지키겠습니다.</p>
+                <p>2. 소통을 중요시하며 자리 비움이나 문제가 생기면 빠르게 공유하겠습니다.</p>
+                <p>3. 실수나 문제가 있어도 남 탓하지말고 문제를 해결해나가는데 집중하겠습니다.</p>
+                <p>4. 대화를 할 때는 캠도 켜고 화면공유도 잘 하겠습니다. </p>
             </div>
         </div>
     </div>
 
-    <div class="img-container">
-        <img src="image.png" class="my-img" alt="My Image">
+    <div class="team">
+        <div class="container">
+            <h2 class="text-center">우리 팀원들</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <a href="member1.html">
+                        <img src="team1.jpg" alt="팀원 1" class="img-fluid rounded-circle">
+                    </a>
+                    <p class="text-center mt-2">팀원 1</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <a href="member2.html">
+                        <img src="team2.jpg" alt="팀원 2" class="img-fluid rounded-circle">
+                    </a>
+                    <p class="text-center mt-2">팀원 2</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <a href="member3.html">
+                        <img src="team3.jpg" alt="팀원 3" class="img-fluid rounded-circle">
+                    </a>
+                    <p class="text-center mt-2">팀원 3</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <a href="member4.html">
+                        <img src="team4.jpg" alt="팀원 4" class="img-fluid rounded-circle">
+                    </a>
+                    <p class="text-center mt-2">팀원 4</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <a href="member5.html">
+                        <img src="team5.jpg" alt="팀원 5" class="img-fluid rounded-circle">
+                    </a>
+                    <p class="text-center mt-2">팀원 5</p>
+                </div>
+            </div>
+        </div>
     </div>
-
 </body>
 
 </html>
