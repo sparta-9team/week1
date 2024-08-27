@@ -104,23 +104,8 @@
                 .then(response => response.json())
                 .then(data => {
                     if (data) {
-                        // 서버로부터 방명록 ID가 반환된 경우, 화면에 메시지를 추가
-                        const card = document.createElement('div');
-                        card.classList.add('col-md-4'); // 카드를 3열로 배치하기 위한 클래스
-                        card.innerHTML = `
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">${name}</h5>
-                                <p class="card-text">${message}</p>
-                            </div>
-                        </div>
-                    `;
-                        const messagesDiv = document.getElementById('messages');
-                        messagesDiv.appendChild(card);
-
-                        // Clear input fields
-                        document.getElementById('name').value = '';
-                        document.getElementById('message').value = '';
+                        // 방명록 저장이 성공하면 페이지 이동
+                        window.location.href = '/guestBook'; // 리다이렉트할 페이지 경로
                     }
                 })
                 .catch(error => {

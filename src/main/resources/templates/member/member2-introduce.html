@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-100" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8" />
@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/details.css" />
+    <link rel="stylesheet" th:href="@{/css/details.css}" />
     <style>
         .depth-5-frame-0>span {
             margin-left: 43px;
@@ -18,7 +18,7 @@
 
         .depth-0-frame-0 {
             border-radius: 18px;
-            background: url('images/face.png') 50% / cover no-repeat;
+            background: url('../../static/images/face.png') 50% / cover no-repeat;
             margin-right: 24px;
             width: 192px;
             height: 256.5px;
@@ -217,7 +217,6 @@
         }
 
         .depth-0-frame-0 .git-hub {
-            background: url('images/git_hub.png') 50% / contain no-repeat;
             margin-right: 9px;
             /* 6px * 1.5 */
             width: 69px;
@@ -398,6 +397,17 @@
             box-sizing: border-box;
         }
 
+        .depth-7-frame-1 .img img {
+            width: 1000px;
+            height: 600px;
+        }
+
+        .depth-7-frame-1 .name name {
+            text-align: center;
+            width: 1000px;
+            height: 600px;
+        }
+
         .depth-0-frame-0 {
             background: #FFFFFF;
             display: flex;
@@ -410,93 +420,140 @@
             box-sizing: border-box;
         }
 
+        .depth-0-frame-0 {
+            background: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 54px 0 15px 0;
+            width: 1920px;
+            box-sizing: border-box;
+        }
+
+        .depth-4-frame-1, .depth-4-frame-5, .depth-4-frame-10, .depth-4-frame-7 {
+            display: flex;
+            justify-content: center; /* 가로 중앙 정렬 */
+            align-items: center; /* 세로 중앙 정렬 */
+            width: 100%; /* 필요에 따라 조정 */
+            margin-bottom: 20px; /* 필요에 따라 조정 */
+            box-sizing: border-box;
+        }
+
+        .depth-4-frame-2, .depth-4-frame-6, .depth-4-frame-11 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* 가로 중앙 정렬 */
+            align-items: flex-start; /* 텍스트 왼쪽 정렬 */
+            width: 100%; /* 필요에 따라 조정 */
+            margin-bottom: 20px; /* 필요에 따라 조정 */
+            box-sizing: border-box;
+        }
+
+        .depth-4-frame-2 span, .depth-4-frame-6 span, .depth-4-frame-11 span {
+            font-family: 'Plus Jakarta Sans';
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 2.25;
+            color: #121417;
+            text-align: left; /* 필요에 따라 조정 */
+        }
+
+        .depth-4-frame-1 span, .depth-4-frame-5 span, .depth-4-frame-10 span, .depth-4-frame-7 span {
+            font-family: 'Plus Jakarta Sans';
+            font-weight: 700;
+            font-size: 33px;
+            line-height: 1.909;
+            color: #121417;
+            text-align: center; /* 제목 중앙 정렬 */
+        }
+
     </style>
 </head>
 
 <body>
-    <div class="depth-0-frame-0">
-        <div class="depth-4-frame-0">
-            <div class="depth-7-frame-1">
-                <div class="name">
-                        지 창 현
-                </div>
-                <div class="img">
-                    <img src="./지창현1.jpg">
-                </div>
+<div class="depth-0-frame-0">
+    <div class="depth-4-frame-0">
+        <div class="depth-7-frame-1">
+            <div class="name">
+                지 창 현
             </div>
-        </div>
-        <div class="depth-4-frame-1">
-            <span class="about">
-                About
-            </span>
-        </div>
-        <div class="depth-4-frame-2">
-            <span
-                class="iam-abackend-developer-with-more-than-ten-years-of-experience-ihave-worked-in-companies-like-google-and-facebook-iam-currently-working-on-ablockchain-project-iam-passionate-about-technology-and-iam-always-learning-new-things">
-                저는 비전공 코린이(비트코인 아님)입니다. 
-                <br>코딩에 대해 전반적으로 이해하고 프로그래밍을 배우고 싶어서 Spring트랙에 지원했습니다. 
-                <br>열심히 배우고 성장하고 싶습니다. 많이 가르쳐주세요!
-            </span>
-        </div>
-        <div class="depth-4-frame-5">
-            <span class="ultimate-goal">
-                Ultimate Goal
-            </span>
-        </div>
-        <div class="depth-4-frame-6">
-            <span
-                class="my-development-philosophy-is-to-write-clean-and-efficient-code-ibelieve-that-code-should-be-easy-to-read-and-understand-ialso-believe-in-the-importance-of-unit-testing-and-continuous-integration">
-                취업! 
-                <br>나의 실수를 지적 받거나 오류가 났을 때 '왜 내가 틀렸고, 
-                <br>어째서 a에서 b로 고쳐야 하는지' 이해할 수 있는 개발자가 되고 싶다.
-            </span>
-        </div>
-        <div class="depth-4-frame-10">
-            <span class="strong-point">
-                Strong Point
-            </span>
-        </div>
-        <div class="depth-4-frame-11">
-            <span
-                class="my-development-philosophy-is-to-write-clean-and-efficient-code-ibelieve-that-code-should-be-easy-to-read-and-understand-ialso-believe-in-the-importance-of-unit-testing-and-continuous-integration-1">
-                목표가 있으면 가늘고 길게- 꾸준히 합니다. 
-                <br>집중력이 좋습니다.
-            </span>
-        </div>
-        <div class="depth-4-frame-7">
-            <span class="contact">
-                Contact
-            </span>
-        </div>
-        <div class="depth-4-frame-8">
-            <div class="container">
-                <div class="git-hub">
-                </div>
-                <div class="depth-5-frame-1">
-                    <div class="depth-6-frame-0">
-                        <span class="git-hub-1">
-                            GitHub / 블로그
-                        </span>
-                    </div>
-                    <div class="depth-6-frame-1">
-                        <span class="andy-liugmail-com">
-                            tesbro1194 / tes1194.tistory.com
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="container-1">
-                <div class="mbti">
-                    MBTI :
-                </div>
-                <div class="depth-5-frame-0">
-                    <span class="intj">
-                        INTJ
-                    </span>
-                </div>
+            <div class="img">
+                <img th:src="@{/images/지창현1.jpg}">
             </div>
         </div>
     </div>
+    <div class="depth-4-frame-1">
+            <span class="about">
+                About
+            </span>
+    </div>
+    <div class="depth-4-frame-2">
+            <span
+                    class="iam-abackend-developer-with-more-than-ten-years-of-experience-ihave-worked-in-companies-like-google-and-facebook-iam-currently-working-on-ablockchain-project-iam-passionate-about-technology-and-iam-always-learning-new-things">
+                저는 비전공 코린이(비트코인 아님)입니다.
+                <br>코딩에 대해 전반적으로 이해하고 프로그래밍을 배우고 싶어서 Spring트랙에 지원했습니다.
+                <br>열심히 배우고 성장하고 싶습니다. 많이 가르쳐주세요!
+            </span>
+    </div>
+    <div class="depth-4-frame-5">
+            <span class="ultimate-goal">
+                Ultimate Goal
+            </span>
+    </div>
+    <div class="depth-4-frame-6">
+            <span
+                    class="my-development-philosophy-is-to-write-clean-and-efficient-code-ibelieve-that-code-should-be-easy-to-read-and-understand-ialso-believe-in-the-importance-of-unit-testing-and-continuous-integration">
+                취업!
+                <br>나의 실수를 지적 받거나 오류가 났을 때 '왜 내가 틀렸고,
+                <br>어째서 a에서 b로 고쳐야 하는지' 이해할 수 있는 개발자가 되고 싶다.
+            </span>
+    </div>
+    <div class="depth-4-frame-10">
+            <span class="strong-point">
+                Strong Point
+            </span>
+    </div>
+    <div class="depth-4-frame-11">
+            <span
+                    class="my-development-philosophy-is-to-write-clean-and-efficient-code-ibelieve-that-code-should-be-easy-to-read-and-understand-ialso-believe-in-the-importance-of-unit-testing-and-continuous-integration-1">
+                목표가 있으면 가늘고 길게- 꾸준히 합니다.
+                <br>집중력이 좋습니다.
+            </span>
+    </div>
+    <div class="depth-4-frame-7">
+            <span class="contact">
+                Contact
+            </span>
+    </div>
+    <div class="depth-4-frame-8">
+        <div class="container">
+            <div class="git-hub">
+        <img th:src="@{/images/git_hub.png}" alt="GitHub Logo" style="width: 100%; height: 100%;">
+        </div>
+            <div class="depth-5-frame-1">
+                <div class="depth-6-frame-0">
+                        <span class="git-hub-1">
+                            GitHub / 블로그
+                        </span>
+                </div>
+                <div class="depth-6-frame-1">
+                        <span class="andy-liugmail-com">
+                            tesbro1194 / tes1194.tistory.com
+                        </span>
+                </div>
+            </div>
+        </div>
+        <div class="container-1">
+            <div class="mbti">
+                MBTI :
+            </div>
+            <div class="depth-5-frame-0">
+                    <span class="intj">
+                        INTJ
+                    </span>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
-
 </html>
