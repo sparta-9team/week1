@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>9조 방명록 페이지</title>
+
+    <style>
+        .message {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+    </style>
+</head>
+<body>
+<!-- header -->
+<header>
+    <!-- nav -->
+    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Team</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Team_detail</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Guestbook</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </nav>
+</header>
+<br>
+<br>
+
+<!-- Main -->
+<div class ="container">
+    <!-- 방명록 입력란 -->
+    <h1>9조 방명록</h1>
+    <div class="mb-3">
+        <label for="name" class="form-label">이름</label>
+        <input type="text" class="form-control" id="name" placeholder="이름을 입력해주세요">
+    </div>
+    <div class="mb-3">
+        <label for="message" class="form-label">내용</label>
+        <textarea class="form-control" id="message" rows="3" placeholder="메세지를 입력해 주세요"></textarea>
+    </div>
+    <button class="btn btn-primary" onclick="addMessage()">방명록 추가</button>
+
+    <!-- 작성된 카드  -->
+    <div id="messages" class="mt-5"></div>
+</div>
+
+<!-- footer -->
+<footer></footer>
+
+<script>
+    function addMessage() {
+        const name = document.getElementById('name').value;
+        const message = document.getElementById('message').value;
+
+        if (name && message) {
+            // Create the request payload
+            const payload = {
+                name: name,
+                content: message
+            };
+
+            // Send a POST request to the server
+            fetch('/guestBook', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data) {
+                        // 서버로부터 방명록 ID가 반환된 경우, 화면에 메시지를 추가
+                        const card = document.createElement('div');
+                        card.classList.add('col-md-4'); // 카드를 3열로 배치하기 위한 클래스
+                        card.innerHTML = `
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">${name}</h5>
+                                <p class="card-text">${message}</p>
+                            </div>
+                        </div>
+                    `;
+                        const messagesDiv = document.getElementById('messages');
+                        messagesDiv.appendChild(card);
+
+                        // Clear input fields
+                        document.getElementById('name').value = '';
+                        document.getElementById('message').value = '';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('메세지를 저장하는데 문제가 발생했습니다.');
+                });
+        } else {
+            alert('이름과 메세지를 입력해 주세요!');
+        }
+    }
+</script>
+</body>
+</html>
