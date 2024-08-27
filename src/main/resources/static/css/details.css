@@ -1,6 +1,5 @@
 .depth-0-frame-0 .image {
   border-radius: 18px;
-  background: url('images/face.png') 50% / cover no-repeat;
   margin-right: 24px;
   width: 192px;
   height: 256.5px;
@@ -138,7 +137,7 @@
   box-sizing: border-box;
 }
 .depth-0-frame-0 .git-hub {
-  background: url('images/git_hub.png') 50% / contain no-repeat;
+  background: url('../member/images/git_hub.png') 50% / contain no-repeat;
   margin-right: 9px; /* 6px * 1.5 */
   width: 69px; /* 46px * 1.5 */
   height: 69px; /* 46px * 1.5 */
