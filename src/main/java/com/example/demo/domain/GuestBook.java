@@ -27,7 +27,7 @@ public class GuestBook extends BaseEntity {
         this.content = content;
     }
 
-    public static GuestBook of(final GuestBookCreateRequest guestBookCreateRequest) {
+    public static GuestBook from(final GuestBookCreateRequest guestBookCreateRequest) {
         return new GuestBook(guestBookCreateRequest.name(), guestBookCreateRequest.content());
     }
 }

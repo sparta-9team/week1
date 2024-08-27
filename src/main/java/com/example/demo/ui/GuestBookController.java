@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class GuestBookController {
 
-    @GetMapping("/guestBook")
+    @GetMapping("/read/guestBook")
     public String guestBookHome(){
         return "/guestBook/guestBook-home";
     }
