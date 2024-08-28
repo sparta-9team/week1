@@ -8,6 +8,11 @@ public class MemberController {
 
     @GetMapping("/secondMember")
     public String secondMember() {
-        return "/member/member2-introduce.html";
+        return "/member/member2-introduce";
+    }
+
+    @GetMapping("/thirdMember")
+    public String thirdMember() {
+        return "/member/member3-introduce";
     }
 }

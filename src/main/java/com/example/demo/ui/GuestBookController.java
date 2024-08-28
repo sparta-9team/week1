@@ -12,7 +12,7 @@ public class GuestBookController {
     }
 
     @GetMapping("/create/guestBook")
-    public String guestBookPage() {
+    public String createQuestBook() {
         return "/guestBook/guestBook-save";
     }
 }
