@@ -2,17 +2,13 @@ package com.example.demo.ui;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MemberController {
 
-    @GetMapping("/secondMember")
-    public String secondMember() {
-        return "/member/member2-introduce";
-    }
-
-    @GetMapping("/thirdMember")
-    public String thirdMember() {
-        return "/member/member3-introduce";
+    @GetMapping("/member")
+    public String getMember(@RequestParam String id){
+        return "/member/member" + id + "-introduce";
     }
 }
