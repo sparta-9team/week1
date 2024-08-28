@@ -1,118 +1,106 @@
 <!DOCTYPE html>
-<html lang="en" class="h-100" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>9조 방명록 페이지</title>
-
-    <style>
-        .message {
-            border-bottom: 1px solid #ddd;
-            padding: 10px 0;
-            margin-bottom: 10px;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 600px;
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-<!-- header -->
-<header>
-    <!-- nav -->
-    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-<!--                <a class="navbar-brand" href="#">Navbar</a>-->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/home">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/home">Team</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/read/guestBook">Guestbook</a>
-                        </li>
-                    </ul>
+    <!-- header -->
+    <header>
+        <!-- nav -->
+        <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    <!--                <a class="navbar-brand" href="#">Navbar</a>-->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/home">Team</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/read/guestBook">Guestbook</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
+            </nav>
         </nav>
-    </nav>
-</header>
-<br>
-<br>
+    </header>
 
-<!-- Main -->
-<div class ="container">
-    <!-- 방명록 입력란 -->
-    <h1>9조 방명록</h1>
-    <div class="mb-3">
-        <label for="name" class="form-label">이름</label>
-        <input type="text" class="form-control" id="name" placeholder="이름을 입력해주세요">
+    <!-- Main content -->
+    <div class="main-content">
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+        <div class="box box3">
+            <form class="guestbook-form">
+                <h2 class="text-center mb-4">9조 방명록</h2>
+                <div class="mb-3">
+                    <label for="name" class="form-label">이름</label>
+                    <input type="text" class="form-control" id="name" placeholder="이름을 입력해주세요">
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">내용</label>
+                    <textarea class="form-control" id="message" rows="3" placeholder="메세지를 입력해 주세요"></textarea>
+                </div>
+                <button onclick="addMessage()" class="btn btn-primary w-100">방명록 추가</button>
+            </form>
+        </div>
+        <!-- 작성된 카드  -->
+        <div id="messages" class="mt-5"></div>
     </div>
-    <div class="mb-3">
-        <label for="message" class="form-label">내용</label>
-        <textarea class="form-control" id="message" rows="3" placeholder="메세지를 입력해 주세요"></textarea>
-    </div>
-    <button class="btn btn-primary" onclick="addMessage()">방명록 추가</button>
 
-    <!-- 작성된 카드  -->
-    <div id="messages" class="mt-5"></div>
-</div>
+    <!-- footer -->
+    <footer></footer>
 
-<!-- footer -->
-<footer></footer>
-
-<script>
-    function addMessage() {
-        const name = document.getElementById('name').value;
-        const message = document.getElementById('message').value;
-
-        if (name && message) {
-            // Create the request payload
-            const payload = {
-                name: name,
-                content: message
-            };
-
-            // Send a POST request to the server
-            fetch('/guestBook', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(payload)
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (data) {
-                        // 방명록 저장이 성공하면 페이지 이동
-                        window.location.href = '/read/guestBook'; // 리다이렉트할 페이지 경로
-                    }
+    <script>
+        function addMessage() {
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('message').value;
+    
+            if (name && message) {
+                // Create the request payload
+                const payload = {
+                    name: name,
+                    content: message
+                };
+    
+                // Send a POST request to the server
+                fetch('/guestBook', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
                 })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('메세지를 저장하는데 문제가 발생했습니다.');
-                });
-        } else {
-            alert('이름과 메세지를 입력해 주세요!');
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data) {
+                            // 방명록 저장이 성공하면 페이지 이동
+                            window.location.href = '/read/guestBook'; // 리다이렉트할 페이지 경로
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('메세지를 저장하는데 문제가 발생했습니다.');
+                    });
+            } else {
+                alert('이름과 메세지를 입력해 주세요!');
+            }
         }
-    }
-</script>
+    </script>
+
 </body>
+
 </html>

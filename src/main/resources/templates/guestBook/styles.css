@@ -1,0 +1,88 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: linear-gradient(135deg, #36454F, #2C3E50); /* 그라데이션 추가 */
+    background-image: url('https://www.transparenttextures.com/patterns/tex2res4.png'); /* 텍스처 이미지 추가 */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 80vh; 
+}
+
+.box {
+    width: 500px; 
+    height: 600px;
+    position: absolute;
+    border-radius: 10px;
+    opacity: 0.9;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* 그림자 효과 추가 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 애니메이션 효과 */
+}
+
+.box:hover {
+    transform: scale(1.05); /* 박스가 커지는 효과 */
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4); /* 더 강한 그림자 */
+}
+
+/* 첫 번째 박스 (박스1) */
+.box1 {
+    background-color: #708090; /* Slate Gray */
+    z-index: 1;
+    transform: rotate(-10deg) translate(-120px, -60px);
+}
+
+/* 두 번째 박스 (박스2) */
+.box2 {
+    background-color: #f5fffa; /* Mint Cream */
+    z-index: 2;
+    transform: rotate(10deg) translate(120px, 60px);
+}
+
+/* 세 번째 박스 (박스3) - 방명록 폼 */
+.box3 {
+    background-color: #b0c4de; /* Light Steel Blue */
+    z-index: 3;
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: rotate(0deg);
+}
+
+.guestbook-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.guestbook-form h2 {
+    color: black;
+    font-weight: 700;
+    text-align: center;
+    font-size: 2rem; 
+    margin-bottom: 30px;
+}
+
+.guestbook-form .form-label {
+    font-weight: 600;
+    font-size: 1.2rem; 
+}
+
+.guestbook-form .form-control {
+    font-size: 1.1rem; 
+    padding: 10px; 
+    margin-bottom: 20px; 
+}
+
+.guestbook-form .btn-primary {
+    font-weight: 600;
+    padding: 15px; 
+    font-size: 1.2rem; 
+}
+
+
