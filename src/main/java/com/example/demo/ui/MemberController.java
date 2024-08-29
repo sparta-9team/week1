@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class MemberController {
 
     @GetMapping("/member")
-    public String getMember(@RequestParam String id){
+    public String getMember(@RequestParam("id") String id){
         return "/member/member" + id + "-introduce";
     }
 }
