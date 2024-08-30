@@ -3,12 +3,14 @@ package com.example.demo.ui.api;
 import com.example.demo.application.GuestBookService;
 import com.example.demo.ui.dto.GuestBookCreateRequest;
 import com.example.demo.ui.dto.GuestBookResponse;
+import com.example.demo.ui.dto.GuestBookUpdateRequest;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,5 +38,13 @@ public class GuestBookApiController {
     public ResponseEntity<List<GuestBookResponse>> readGuestBooks() {
         final List<GuestBookResponse> guestBookResponses = guestBookService.readGuestBooks();
         return ResponseEntity.ok(guestBookResponses);
+    }
+
+    @PutMapping("/{guestBookId}")
+    public ResponseEntity<Void> updateGuestBook(
+            @PathVariable("guestBookId") final Long guestBookId,
+            @RequestBody final GuestBookUpdateRequest guestBookUpdateRequest) {
+        guestBookService.updateGuestBook(guestBookId, guestBookUpdateRequest);
+        return ResponseEntity.ok().build();
     }
 }

@@ -1,6 +1,7 @@
 package com.example.demo.domain;
 
 import com.example.demo.ui.dto.GuestBookCreateRequest;
+import com.example.demo.ui.dto.GuestBookUpdateRequest;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -29,5 +30,10 @@ public class GuestBook extends BaseEntity {
 
     public static GuestBook from(final GuestBookCreateRequest guestBookCreateRequest) {
         return new GuestBook(guestBookCreateRequest.name(), guestBookCreateRequest.content());
+    }
+
+    public void update(final GuestBookUpdateRequest guestBookUpdateRequest){
+        this.name = guestBookUpdateRequest.name();
+        this.content = guestBookUpdateRequest.content();
     }
 }
